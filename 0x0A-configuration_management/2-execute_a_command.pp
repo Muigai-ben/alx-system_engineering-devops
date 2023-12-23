@@ -1,12 +1,9 @@
-# Define the exec resource to kill the process named "killmenow"
-exec { 'kill_killmenow_process':
-  command     => 'pkill killmenow',
-  refreshonly => true, # Only run when notified by another resource
-  subscribe   => Exec['notify_killmenow_process'], # Subscribe to a notification
-}
+# A manifest to kill a running process killmenow from the process table
+# on every puppet run
+exec { 'killing a process using pkill':
+  command  => 'pkill -9 killmenow',
+  path     => '/usr/bin:/bin',
+  onlyif   => 'pgrep killmenow',
+  provider => shell,
 
-# Notify the exec resource to trigger its execution
-exec { 'notify_killmenow_process':
-  command => '/bin/true',
-  notify  => Exec['kill_killmenow_process'],
 }
