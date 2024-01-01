@@ -12,4 +12,4 @@ A __Secure Shell__, or __Secure Socket Shell__, is a network protocol that allow
 - How to connect to a remote host using an SSH RSA key pair
 - The advantage of using `#!/usr/bin/env bash` instead of `/bin/bash`
 
-## Projects thought process
+## Projects thought processes in ssh.
