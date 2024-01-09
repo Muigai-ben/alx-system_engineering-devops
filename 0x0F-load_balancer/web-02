@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#configuring remotely accessing server
+
+eval $("ssh-agent")
+
+#path to identity file
+ssh-add ~/.ssh/school
+
+#ussername and password
+ssh ubuntu@34.229.49.49
