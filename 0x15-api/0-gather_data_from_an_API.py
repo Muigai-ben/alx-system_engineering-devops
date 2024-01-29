@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """script using this REST API, for a given employee ID,
-returns information about his/her TODO list progress."""
+returns information about his/her TODO list progress
 import requests
 from sys import argv
+
 
 def fetch_employee_data(employee_id):
     """
@@ -22,6 +23,7 @@ def fetch_employee_data(employee_id):
 
     return user_data, todos_data
 
+
 def calculate_todo_progress(todos_data):
     """
     Calculate TODO list progress.
@@ -37,6 +39,7 @@ def calculate_todo_progress(todos_data):
 
     return completed_tasks, total_tasks
 
+
 def display_todo_progress(user_data, completed_tasks, total_tasks, todos_data):
     """
     Display TODO list progress information on the standard output.
@@ -49,10 +52,11 @@ def display_todo_progress(user_data, completed_tasks, total_tasks, todos_data):
     """
     if user_data:
         print(f"Employee {user_data['name']} is done with tasks ({completed_tasks}/{total_tasks}):")
-        
+
         for task in todos_data:
             if task['completed']:
                 print(f"\t{task['title']}")
+
 
 if __name__ == "__main__":
     if len(argv) != 2 or not argv[1].isdigit():
@@ -64,4 +68,3 @@ if __name__ == "__main__":
     user_data, todos_data = fetch_employee_data(employee_id)
     completed_tasks, total_tasks = calculate_todo_progress(todos_data)
     display_todo_progress(user_data, completed_tasks, total_tasks, todos_data)
-
