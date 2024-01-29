@@ -4,6 +4,9 @@ returns information about his/her TODO list progress."""
 import requests
 from sys import argv
 
+import requests
+from sys import argv
+
 if __name__ == "__main__":
     if len(argv) != 2 or not argv[1].isdigit():
         print("Usage: python script.py <employee_id>")
@@ -32,5 +35,4 @@ if __name__ == "__main__":
     for task in todos_data:
         if task['completed']:
             print(f"\t{task['title']}")
-
 
