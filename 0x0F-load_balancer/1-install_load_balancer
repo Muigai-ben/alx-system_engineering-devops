@@ -13,8 +13,8 @@ frontend bendevsolutions.tech
 
 backend web_servers
         balance roundrobin
-        server 64820-web-01 100.26.136.91
-        server 64820-web-02 34.229.49.49
+        server 64820-web-01 52.3.251.151
+        server 64820-web-02 100.25.151.159
 ' >> /etc/haproxy/haproxy.cfg
 
 # Restart HAproxy service
